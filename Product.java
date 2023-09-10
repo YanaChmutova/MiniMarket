@@ -1,18 +1,23 @@
+package com.telran.minimarket.minimarket;
+import java.util.Objects;
 
-
-public class Product implements Comparable<Product>{
+public class Product 
+implements Comparable<Product>{
 	private String name;
 	private double price;
 	private String unit;
 	private int code;
 	private double quantity = 0;
-	public Product(String name, double price, String unit, int code) {
+	
+	
+	public Product(String name, 
+			double price, String unit, 
+			int code) {
 		super();
 		this.name = name;
 		this.price = price;
 		this.unit = unit;
 		this.code = code;
-
 	}
 	public String getName() {
 		return name;
@@ -46,9 +51,17 @@ public class Product implements Comparable<Product>{
 	}
 	@Override
 	public String toString() {
-		return " name: " + name + ", price: " + price + ", unit: " + unit + ", code: " + code + ", quantity: " + quantity;
+		return "name: " + name 
+				+ ", price: " + price 
+				+ ", unit: " + unit 
+				+ ", code: " + code 
+				+ ", quantity: "
+				+ quantity ;
 	}
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(code);
+	}
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -58,15 +71,15 @@ public class Product implements Comparable<Product>{
 		if (getClass() != obj.getClass())
 			return false;
 		Product other = (Product) obj;
-		if (this.code != other.code)
-			return false;
-		return true;
-	}
-	@Override
-	public int compareTo(Product other) {
-		int res = this.name.compareToIgnoreCase(other.name);
-		return res;
+		return this.code == other.code;
 	}
 	
+@Override
+public int compareTo(Product other)
+{
+int res = 
+this.name.compareToIgnoreCase(other.name);
 	
+	return res;
+}
 }

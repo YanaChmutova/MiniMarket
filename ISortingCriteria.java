@@ -1,4 +1,4 @@
-
+package com.telran.minimarket.sorting;
 
 public interface ISortingCriteria {
 	public int SORT_BY_NAME = 1;
@@ -11,5 +11,4 @@ public interface ISortingCriteria {
 	public int SORT_BY_UNIT_REVERSE = 8;
 	public int SORT_BY_QUANTITY = 9;
 	public int SORT_BY_QUANTITY_REVERSE = 10;
-
 }
